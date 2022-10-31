@@ -7,12 +7,7 @@ from modules.brute import Brute
 import threading
 from common import out_put
 from optparse import OptionParser
-
-domain = "wuyecao.net"
-crt = Crt_spider(domain)
-brute = Brute(domain, 100)
-# 利用线程启动
-threads = [threading.Thread(target=crt.start), threading.Thread(target=brute.start)]
+from config import *
 
 # 最常用的用法就是用来接收参数
 if __name__ == '__main__':
@@ -23,7 +18,7 @@ ____        _         _                       _           ____
 \___ \| | | | '_ \ / _` |/ _ \| '_ ` _ \ / _` | | '_ \    | |_) |
  ___) | |_| | |_) | (_| | (_) | | | | | | (_| | | | | |   |  _ < 
 |____/ \__,_|_.__/ \__,_|\___/|_| |_| |_|\__,_|_|_| |_|___|_| \_\
-                                                                          
+
     """
     print(banner)
     parser = OptionParser()
@@ -35,6 +30,12 @@ ____        _         _                       _           ____
     else:
         print(options.url)
         print(options.count)
+
+domain = "wuyecao.net"
+crt = Crt_spider(domain)
+brute = Brute(domain, thread)
+# 利用线程启动
+threads = [threading.Thread(target=crt.start), threading.Thread(target=brute.start)]
 
 for t in threads:
     t.start()

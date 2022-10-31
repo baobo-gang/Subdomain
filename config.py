@@ -10,5 +10,7 @@ cache_base_path = "./cache/"
 domain_dict_path = "./dict/domain2.txt"
 # 目前拥有的模块列表, 如果新增需要加入下面的列表
 module_list = ['crt', "brute"]
-
-
+# 需要收集的域名
+domain1 = "wuyecao.net"
+# 线程数量
+thread = 100
